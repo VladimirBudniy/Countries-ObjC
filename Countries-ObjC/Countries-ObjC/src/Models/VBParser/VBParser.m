@@ -48,11 +48,8 @@
                 VBCountry *country = [sharedObject findOrCreateCountryWithName:name];
                 if (country) {
                     country.name = name;
-                    
                     country.capital = [item valueForKey:@"capitalCity"];
-                    
                     country.latitude = [item valueForKey:@"latitude"];
-                 
                     country.longitude = [item valueForKey:@"longitude"];
                 }
             }
