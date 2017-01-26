@@ -99,10 +99,6 @@ static NSString * const kVBPredicateFormat = @"name = %@";
     return [[self persistentContainer] viewContext];
 }
 
-- (NSManagedObjectContext *)privateContext {
-    return [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-}
-
 #pragma mark -
 #pragma mark Core Data stack
 

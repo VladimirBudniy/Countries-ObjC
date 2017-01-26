@@ -37,8 +37,8 @@
 - (void)parse {
     VBContext *sharedObject = [VBContext sharedObject];
     NSManagedObjectContext *mainContext = [sharedObject mainContext];
-    NSManagedObjectContext *privateContext = [sharedObject privateContext];
-    privateContext.parentContext = [sharedObject mainContext];
+    NSManagedObjectContext *privateContext =  [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    privateContext.parentContext = mainContext;
     NSArray *json = self.json;
     
     [privateContext performBlock:^{
