@@ -1,0 +1,25 @@
+//
+//  VBCountries+PrefixHeader.pch
+//  Counries-ObjC
+//
+//  Created by Vladimir Budniy on 1/23/17.
+//  Copyright © 2017 Vladimir Budniy. All rights reserved.
+//
+
+#ifndef VBCountries_PrefixHeader_pch
+#define VBCountries_PrefixHeader_pch
+
+#import "NSBundle+VBCategory.h"
+#import "NSDate+VBCategory.h"
+#import "UINib+VBCategory.h"
+#import "UITableView+VBCategory.h"
+#import "UIView+VBCategory.h"
+#import "UIViewController+VBCategory.h"
+#import "UIWindow+VBCategory.h"
+#import "VBDispatch.h"
+#import "VBMacroHeaderIOS.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* VBCountries_PrefixHeader_pch */
