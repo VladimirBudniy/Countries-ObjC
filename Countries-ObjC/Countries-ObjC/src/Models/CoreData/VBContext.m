@@ -41,11 +41,14 @@ static NSString * const kVBPredicateFormat = @"name = %@";
         return country;
     }
 
-    return [self createCountrInContext:context];
+    return [self createCountryWithName:(NSString *)name InContext:context];
 }
 
-- (id)createCountrInContext:(NSManagedObjectContext *)context {
-    return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([VBCountry class]) inManagedObjectContext:context];
+- (id)createCountryWithName:(NSString *)name InContext:(NSManagedObjectContext *)context {
+    VBCountry *country = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([VBCountry class]) inManagedObjectContext:context];
+    [country setValue:name forKey:@"name"];
+    
+    return country;
 }
 
 - (NSArray *)findAll {

@@ -43,13 +43,15 @@
     
     [privateContext performBlock:^{
         for (NSDictionary *item in json) {
-            NSString *name = [item valueForKey:@"name"];
-            VBCountry *country = [sharedObject findOrCreateCountryWithName:name];
-            if (country) {
-                country.name = name;
-                country.capital = [item valueForKey:@"capitalCity"];
-                country.latitude = [item valueForKey:@"latitude"];
-                country.longitude = [item valueForKey:@"longitude"];
+            if (![[item valueForKey:@"capitalCity"] isEqualToString:@""]) {
+                NSString *name = [item valueForKey:@"name"];
+                VBCountry *country = [sharedObject findOrCreateCountryWithName:name];
+                if (country) {
+                    country.name = name;
+                    country.capital = [item valueForKey:@"capitalCity"];
+                    country.latitude = [item valueForKey:@"latitude"];
+                    country.longitude = [item valueForKey:@"longitude"];
+                }
             }
         }
         

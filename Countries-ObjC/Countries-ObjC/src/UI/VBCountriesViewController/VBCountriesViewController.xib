@@ -19,37 +19,36 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUs-B5-BVR">
-                    <rect key="frame" x="85" y="244" width="150" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="150" id="R5n-Wc-ECP"/>
-                        <constraint firstAttribute="height" constant="80" id="fzk-DU-nxl"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="40"/>
-                    <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bf8-ob-4ky">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klH-FC-7y9">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="XSK-wT-wNt"/>
-                        <outlet property="delegate" destination="-1" id="Rqb-dA-JLY"/>
-                    </connections>
-                </tableView>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bf8-ob-4ky">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="XSK-wT-wNt"/>
+                                <outlet property="delegate" destination="-1" id="Rqb-dA-JLY"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="bf8-ob-4ky" secondAttribute="trailing" id="Idh-L2-fCU"/>
+                        <constraint firstItem="bf8-ob-4ky" firstAttribute="top" secondItem="klH-FC-7y9" secondAttribute="top" id="S0e-c0-qXi"/>
+                        <constraint firstItem="bf8-ob-4ky" firstAttribute="leading" secondItem="klH-FC-7y9" secondAttribute="leading" id="fdf-m8-ImP"/>
+                        <constraint firstAttribute="bottom" secondItem="bf8-ob-4ky" secondAttribute="bottom" id="hwz-le-4jl"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="bf8-ob-4ky" secondAttribute="trailing" id="POF-gA-5j1"/>
-                <constraint firstItem="bf8-ob-4ky" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XA2-Ro-tTh"/>
-                <constraint firstItem="bf8-ob-4ky" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eQ9-T4-1HR"/>
-                <constraint firstItem="zUs-B5-BVR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eZq-Pt-7Dt"/>
-                <constraint firstItem="zUs-B5-BVR" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="oLF-wY-J0O"/>
-                <constraint firstAttribute="bottom" secondItem="bf8-ob-4ky" secondAttribute="bottom" id="rKf-OQ-lVU"/>
+                <constraint firstItem="klH-FC-7y9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Izy-Re-1n6"/>
+                <constraint firstItem="klH-FC-7y9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UFM-IO-evQ"/>
+                <constraint firstAttribute="trailing" secondItem="klH-FC-7y9" secondAttribute="trailing" id="mjI-uP-S2j"/>
+                <constraint firstAttribute="bottom" secondItem="klH-FC-7y9" secondAttribute="bottom" id="xkE-KA-6Cq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="helloLabel" destination="zUs-B5-BVR" id="o6M-gj-gP5"/>
                 <outlet property="tableView" destination="bf8-ob-4ky" id="iCL-y0-VDs"/>
             </connections>
             <point key="canvasLocation" x="-50" y="33"/>

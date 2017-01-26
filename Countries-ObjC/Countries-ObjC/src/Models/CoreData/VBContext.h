@@ -17,7 +17,7 @@
 
 - (id)findOrCreateCountryWithName:(NSString *)name;
 - (id)findOrCreateCountryWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
-- (id)createCountrInContext:(NSManagedObjectContext *)context;
+- (id)createCountryWithName:(NSString *)name InContext:(NSManagedObjectContext *)context;
 
 - (NSArray *)findAll;
 - (NSArray *)findAllInContext:(NSManagedObjectContext *)context;
