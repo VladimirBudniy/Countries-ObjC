@@ -29,7 +29,6 @@
 - (void)removeCountry:(NSManagedObject *)country inContext:(NSManagedObjectContext *)context;
 
 - (NSManagedObjectContext *)mainContext;
-- (NSManagedObjectContext *)privateContext;
 
 - (void)saveContext;
 - (void)saveInContext:(NSManagedObjectContext *)context;

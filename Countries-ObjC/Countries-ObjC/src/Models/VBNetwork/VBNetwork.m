@@ -43,7 +43,10 @@ typedef void (^VBNetworkHandler)(id object);
 #pragma mark Initializations and Deallocatins
 
 - (void)dealloc {
+    self.session = nil;
     self.task = nil;
+    self.array = nil;
+    self.networkHandler = nil;
 }
 
 - (instancetype)initWithHandler:(VBNetworkHandler)handler {
