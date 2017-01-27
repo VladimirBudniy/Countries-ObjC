@@ -45,8 +45,6 @@ typedef void (^VBNetworkHandler)(id object);
 - (void)dealloc {
     self.session = nil;
     self.task = nil;
-    self.array = nil;
-    self.networkHandler = nil;
 }
 
 - (instancetype)initWithHandler:(VBNetworkHandler)handler {
@@ -101,14 +99,12 @@ typedef void (^VBNetworkHandler)(id object);
         if (!error) {
             NSMutableArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             if (json.count > 1) {
-                // NSLog(@"%@", json);
-                [[[VBParser alloc] initWithJson:[json lastObject] handler:[self parseHandler]] parse];
+                [[[VBParser alloc] initWithJson:[json lastObject] handler:[self parseHandler]] parseWith:kVBCountriesDataType];
             } else {
-                 [[[VBParser alloc] initWithJson:json handler:[self parseHandler]] parse];
+                [[[VBParser alloc] initWithJson:json handler:[self parseHandler]] parseWith:kVBCountryDataType];
             }
-            
         } else {
-            NSLog(@"Print error - %@", error);
+            NSLog(@"Error of session - %@", error);
         }
     }];
     

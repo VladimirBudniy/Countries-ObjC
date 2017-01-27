@@ -34,6 +34,7 @@
 		CFF9A9891E3B335500B6EBB8 /* VBDetailVeiwController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9A9871E3B335500B6EBB8 /* VBDetailVeiwController.m */; };
 		CFF9A98A1E3B335500B6EBB8 /* VBDetailVeiwController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF9A9881E3B335500B6EBB8 /* VBDetailVeiwController.xib */; };
 		CFF9A98E1E3B336F00B6EBB8 /* VBDetailVeiw.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9A98D1E3B336F00B6EBB8 /* VBDetailVeiw.m */; };
+		CFF9A9911E3B85A800B6EBB8 /* VBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9A9901E3B85A800B6EBB8 /* VBAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,8 @@
 		CFF9A9881E3B335500B6EBB8 /* VBDetailVeiwController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBDetailVeiwController.xib; sourceTree = "<group>"; };
 		CFF9A98C1E3B336F00B6EBB8 /* VBDetailVeiw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDetailVeiw.h; sourceTree = "<group>"; };
 		CFF9A98D1E3B336F00B6EBB8 /* VBDetailVeiw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDetailVeiw.m; sourceTree = "<group>"; };
+		CFF9A98F1E3B85A800B6EBB8 /* VBAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBAnnotation.h; sourceTree = "<group>"; };
+		CFF9A9901E3B85A800B6EBB8 /* VBAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +365,8 @@
 			children = (
 				CFF9A98C1E3B336F00B6EBB8 /* VBDetailVeiw.h */,
 				CFF9A98D1E3B336F00B6EBB8 /* VBDetailVeiw.m */,
+				CFF9A98F1E3B85A800B6EBB8 /* VBAnnotation.h */,
+				CFF9A9901E3B85A800B6EBB8 /* VBAnnotation.m */,
 			);
 			path = VBDetailVeiw;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 				CFF9A9891E3B335500B6EBB8 /* VBDetailVeiwController.m in Sources */,
 				CF2B22A61E364074001441C2 /* NSDate+VBCategory.m in Sources */,
 				CF90442B1E37A89A00D90EEC /* VBCountryCell.m in Sources */,
+				CFF9A9911E3B85A800B6EBB8 /* VBAnnotation.m in Sources */,
 				CF9E9BEF1E373C9500B4A3CD /* VBContext.m in Sources */,
 				CF2B22711E364026001441C2 /* main.m in Sources */,
 				CF2B22C71E36407B001441C2 /* VBCountriesView.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "VBCountriesViewController.h"
+#import "VBDetailVeiwController.h"
 #import "VBCountriesView.h"
 #import "VBCountryCell.h"
 #import "VBContext.h"
@@ -125,8 +126,11 @@ VBRootViewAndReturnIfNilMacro(VBCountriesView);
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-   
-    // create new controller
+    
+    VBDetailVeiwController *controller = [VBDetailVeiwController new];
+    VBCountry *country = self.countries[indexPath.row];
+    controller.countryName = country.name;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {

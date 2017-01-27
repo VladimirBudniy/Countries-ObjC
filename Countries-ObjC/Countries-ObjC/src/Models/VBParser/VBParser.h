@@ -10,9 +10,14 @@
 
 typedef void (^VBParserHandler)(id objects);
 
+typedef NS_ENUM(NSUInteger, VBParseDataType) {
+    kVBCountriesDataType,
+    kVBCountryDataType
+};
+
 @interface VBParser : NSObject
 
-- (instancetype)initWithJson:(NSArray *)json handler:(VBParserHandler)handler;
-- (void)parse;
+- (instancetype)initWithJson:(NSArray *)json handler:(VBParserHandler)parseHandler;
+- (void)parseWith:(VBParseDataType)type;
 
 @end
