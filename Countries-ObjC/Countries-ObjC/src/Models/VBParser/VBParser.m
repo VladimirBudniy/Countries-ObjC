@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSArray        *json;
 @property (nonatomic, strong) VBParserHandler parseHandler;
 
+@property (nonatomic, copy) NSString *currentCountryName;
+
 @end
 
 @implementation VBParser
@@ -23,14 +25,13 @@
 
 - (void)dealloc {
     self.json = nil;
-    self.parseHandler = nil;
 }
 
-- (instancetype)initWithJson:(NSArray *)json handler:(VBParserHandler)handler {
+- (instancetype)initWithJson:(NSArray *)json handler:(VBParserHandler)parseHandler {
     self = [super init];
     if (self) {
         self.json = json;
-        self.parseHandler = handler;
+        self.parseHandler = parseHandler;
     }
     
     return self;
@@ -39,21 +40,29 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)parse {
+- (void)parseWith:(VBParseDataType)type {
     VBContext *sharedObject = [VBContext sharedObject];
     NSManagedObjectContext *mainContext = [sharedObject mainContext];
     NSManagedObjectContext *privateContext =  [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     privateContext.parentContext = mainContext;
     NSArray *json = self.json;
+    
     [privateContext performBlock:^{
         for (NSDictionary *item in json) {
             if (![[item valueForKey:@"capitalCity"] isEqualToString:@""]) {
                 NSString *name = [item valueForKey:@"name"];
-                VBCountry *country = [sharedObject findOrCreateCountryWithName:name];
-                if (country) {
+                VBCountry *country = [sharedObject findOrCreateCountryWithName:name inContext:privateContext];
+                if (country && type == kVBCountriesDataType) {
                     country.capital = [item valueForKey:@"capitalCity"];
                     country.latitude = [item valueForKey:@"latitude"];
                     country.longitude = [item valueForKey:@"longitude"];
+                } else if (country && type == kVBCountryDataType) {
+                    
+                    self.currentCountryName = country.name;  // strongSelf!
+                    
+                    country.population = ((NSNumber *)[item valueForKey:@"population"]).integerValue;
+                    country.languages = [[item valueForKey:@"languages"] componentsJoinedByString:@", "];
+                    country.nativeName = [item valueForKey:@"nativeName"];
                 }
             }
         }
@@ -64,7 +73,11 @@
         [mainContext performBlockAndWait:^{
             NSError *error = nil;
             [mainContext save:&error];
-            self.parseHandler([sharedObject findAll]);
+            if (type == kVBCountriesDataType) {
+                self.parseHandler([sharedObject findAllInContext:mainContext]);
+            } else {
+                self.parseHandler([sharedObject findCountryWithName:self.currentCountryName inContext:mainContext]);
+            }
         }];
     }];
 }

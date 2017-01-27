@@ -15,15 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<VBCountry *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *capital;
-@property (nullable, nonatomic, copy) NSString *name;
-@property (nullable, nonatomic, copy) NSString *currencies;
-@property (nullable, nonatomic, copy) NSString *languages;
-@property (nullable, nonatomic, copy) NSString *latitude;
-@property (nullable, nonatomic, copy) NSString *longitude;
-@property (nullable, nonatomic, copy) NSString *nativeName;
-@property (nonatomic) int64_t population;
-@property (nullable, nonatomic, copy) NSString *region;
+@property (nonatomic, copy) NSString *capital;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *currencies;
+@property (nonatomic, copy) NSString *languages;
+@property (nonatomic, copy) NSString *latitude;
+@property (nonatomic, copy) NSString *longitude;
+@property (nonatomic, copy) NSString *nativeName;
+@property (nonatomic, copy) NSString *region;
+
+@property (nonatomic, assign) int64_t population;
 
 @end
 
