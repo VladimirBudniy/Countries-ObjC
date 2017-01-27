@@ -21,6 +21,11 @@
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
+- (void)dealloc {
+    self.json = nil;
+    self.parseHandler = nil;
+}
+
 - (instancetype)initWithJson:(NSArray *)json handler:(VBParserHandler)handler {
     self = [super init];
     if (self) {
@@ -40,14 +45,12 @@
     NSManagedObjectContext *privateContext =  [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     privateContext.parentContext = mainContext;
     NSArray *json = self.json;
-    
     [privateContext performBlock:^{
         for (NSDictionary *item in json) {
             if (![[item valueForKey:@"capitalCity"] isEqualToString:@""]) {
                 NSString *name = [item valueForKey:@"name"];
                 VBCountry *country = [sharedObject findOrCreateCountryWithName:name];
                 if (country) {
-                    country.name = name;
                     country.capital = [item valueForKey:@"capitalCity"];
                     country.latitude = [item valueForKey:@"latitude"];
                     country.longitude = [item valueForKey:@"longitude"];
