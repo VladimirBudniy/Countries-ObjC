@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface VBDetailVeiw : UIView
+@class VBCountry;
+
+@interface VBDetailVeiw : UIView <MKMapViewDelegate>
+
+- (void)fillWithCountry:(VBCountry *)country;
 
 @end
