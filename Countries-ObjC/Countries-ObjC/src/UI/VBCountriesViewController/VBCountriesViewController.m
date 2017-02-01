@@ -17,8 +17,7 @@
 @property (nonatomic, readonly) UITableView     *tableView;
 @property (nonatomic, readonly) VBCountriesView *rootView;
 @property (nonatomic, strong)   NSMutableArray  *countries;
-
-@property (nonatomic, assign)   NSUInteger page;
+@property (nonatomic, assign)   NSUInteger       page;
 
 - (void)load;
 - (void)reloadRootViewData;
@@ -26,9 +25,10 @@
 
 - (void)addRefreshControl;
 - (void)refreshView;
+
 @end
 
-@implementation VBCountriesViewController
+@implementation VBCountriesViewController 
 
 #pragma mark -
 #pragma mark Accessors

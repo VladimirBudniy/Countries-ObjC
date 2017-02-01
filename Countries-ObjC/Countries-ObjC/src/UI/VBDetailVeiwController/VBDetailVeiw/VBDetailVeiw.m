@@ -31,7 +31,6 @@
 - (void)loadedTextFrom:(VBCountry *)country;
 - (void)loadMapForCountry:(VBCountry *)country;
 - (void)settingMapView;
-
 - (void)zeroAlpha;
 
 @end
@@ -72,7 +71,6 @@
 }
 
 - (void)loadMapForCountry:(VBCountry *)country {
-    
     CLLocationCoordinate2D location;
     location.latitude = country.latitude.doubleValue;
     location.longitude= country.longitude.doubleValue;
