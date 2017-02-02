@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface VBDetailVeiwController : UIViewController
-@property (nonatomic, copy) NSString *countryName;
+
+- (instancetype)initWithCountryName:(NSString *)name;
 
 @end

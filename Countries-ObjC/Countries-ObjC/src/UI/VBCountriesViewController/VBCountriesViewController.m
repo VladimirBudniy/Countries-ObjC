@@ -10,19 +10,20 @@
 #import "VBDetailVeiwController.h"
 #import "VBCountriesView.h"
 #import "VBCountryCell.h"
-#import "VBContext.h"
-#import "VBNetwork.h"
+#import "VBNetworkCountries.h"
 
-@interface VBCountriesViewController ()
-@property (nonatomic, readonly) UITableView     *tableView;
-@property (nonatomic, readonly) VBCountriesView *rootView;
+VBViewControllerRootViewProperty(VBCountriesViewController, VBCountriesView)
+
+@interface VBCountriesViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong)   NSMutableArray  *countries;
 @property (nonatomic, assign)   NSUInteger       page;
 
+- (UITableView *)tableView;
 - (void)load;
 - (void)reloadRootViewData;
 - (VBNetworkHandler)handler;
 
+- (id)classForIdentifire:(NSString *)identifire;
 - (void)addRefreshControl;
 - (void)refreshView;
 
@@ -31,28 +32,12 @@
 @implementation VBCountriesViewController 
 
 #pragma mark -
-#pragma mark Accessors
-
-VBRootViewAndReturnIfNilMacro(VBCountriesView);
-
-- (void)setCountries:(NSMutableArray *)countries {
-    if (_countries != countries) {
-        _countries = countries;
-        
-        [self reloadRootViewData];
-    }
-}
-
--(UITableView *)tableView {
-    return self.rootView.tableView;
-}
-
-#pragma mark -
 #pragma mark Initializations and Deallocatins
 
 - (instancetype)init {
-    self = [VBCountriesViewController controllerFromNib];
+    self = [super init];
     if (self) {
+        self.countries = [NSMutableArray new];
         self.page = 1;
     }
     
@@ -71,43 +56,46 @@ VBRootViewAndReturnIfNilMacro(VBCountriesView);
 #pragma mark -
 #pragma mark Private
 
+- (UITableView *)tableView {
+    return self.rootView.tableView;
+}
+
 - (void)addRefreshControl {
     UIRefreshControl *control = [UIRefreshControl new];
     control.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refersh"];
     [control addTarget:self action:@selector(refreshView) forControlEvents:UIControlEventValueChanged];
-    self.tableView.refreshControl = control;
+    [self tableView].refreshControl = control;
 }
 
 - (void)refreshView {
+    [NSManagedObjectContext removeAllInBackground];
+    [self.countries removeAllObjects];
+    [[self tableView] reloadData];
     self.page = 1;
-    [[VBContext sharedObject] removeAll];
     [self load];
 }
 
 - (VBNetworkHandler)handler {
     return ^(id object) {
-        self.countries = object;
+        [self.countries addObjectsFromArray:object];
+        [self reloadRootViewData];
     };
 }
 
 - (void)load {
-    VBNetwork *networkModel = [[VBNetwork alloc] initWithHandler:[self handler]];
-    [networkModel prepareToLoadWith:[NSNumber numberWithInteger:self.page]];
+    VBNetworkCountries *model = [VBNetworkCountries modelWithHandler:[self handler]];
+    [model urlForLoadingWith:[NSNumber numberWithInteger:self.page]];
 }
 
 - (void)reloadRootViewData {
-    VBCountriesView *rootView = self.rootView;
-    [rootView.tableView reloadData];
-    [self.tableView.refreshControl endRefreshing];
+    UITableView *tableView = [self tableView];
+    [tableView reloadData];
+    [tableView.refreshControl endRefreshing];
 }
 
-- (id)tableView:(UITableView *)tableView cellAtIndexPath:(NSIndexPath *)indexPath class:(Class)theClass {
-    id currentCell = [tableView dequeueReusableCellWithBundleClass:[theClass class]];
-    [currentCell fillWithCounty:self.countries[indexPath.row]];
-    UITableViewCell *cell = currentCell;
-    [tableView setRowHeight:cell.contentView.frame.size.height];
-    
-    return cell;
+- (id)classForIdentifire:(NSString *)identifire {
+    id class = NSClassFromString(identifire);
+    return [class class];
 }
 
 #pragma mark -
@@ -118,7 +106,10 @@ VBRootViewAndReturnIfNilMacro(VBCountriesView);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self tableView:tableView cellAtIndexPath:indexPath class:[VBCountryCell class]];
+    id cell = [tableView dequeueReusableCellWithBundleClass:[self classForIdentifire:@"VBCountryCell"]];
+    [cell fillWithModel:self.countries[indexPath.row]];
+
+    return cell;
 }
 
 #pragma mark
@@ -127,9 +118,9 @@ VBRootViewAndReturnIfNilMacro(VBCountriesView);
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    VBDetailVeiwController *controller = [VBDetailVeiwController new];
     VBCountry *country = self.countries[indexPath.row];
-    controller.countryName = country.name;
+    NSString *name = country.name;
+    VBDetailVeiwController *controller = [[VBDetailVeiwController alloc] initWithCountryName:name];
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -139,6 +130,8 @@ VBRootViewAndReturnIfNilMacro(VBCountriesView);
     if (indexPath.row == lastRow) {
         self.page += 1;
         [self load];
+        
+        // remove lock of view and fix count /////////////////////////////////////////////
     }
 }
 

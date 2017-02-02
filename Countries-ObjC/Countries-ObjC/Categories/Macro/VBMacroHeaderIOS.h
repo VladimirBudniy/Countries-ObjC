@@ -20,6 +20,10 @@
             return; \
         }
 
+
+#define VBRootViewProperty(theClass) \
+    @property (nonatomic, readonly) theClass *rootView;
+
 #define VBRootViewAndReturnIfNilMacro(theClass) \
     - (theClass *)rootView { \
         if ([self isViewLoaded] && [self.view isKindOfClass:[theClass class]]) { \
@@ -27,5 +31,24 @@
                     } \
                     return nil; \
                 }
+
+
+
+#define VBViewControllerRootViewProperty(viewControllerClass, baseViewClass) \
+    @interface viewControllerClass (__##baseViewClass) \
+        VBRootViewProperty(baseViewClass) \
+                                        \
+    @end \
+                                        \
+    @implementation viewControllerClass (__##baseViewClass) \
+                                        \
+        @dynamic rootView; \
+                                        \
+        VBRootViewAndReturnIfNilMacro(baseViewClass) \
+                                        \
+    @end
+
+
+
 
 #endif /* VBMacroHeaderIOS_h */

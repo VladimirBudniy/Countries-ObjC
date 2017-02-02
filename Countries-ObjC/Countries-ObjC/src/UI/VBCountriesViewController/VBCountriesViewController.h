@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VBCountriesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface VBCountriesViewController : UIViewController
 
 @end

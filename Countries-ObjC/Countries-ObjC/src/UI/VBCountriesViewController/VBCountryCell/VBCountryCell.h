@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VBCell.h"
 #import "VBCountry+CoreDataClass.h"
 
-@interface VBCountryCell : UITableViewCell
+@interface VBCountryCell : VBCell
 @property (weak, nonatomic) IBOutlet UILabel *countryName;
 @property (weak, nonatomic) IBOutlet UILabel *capitalName;
-
-- (void)fillWithCounty:(VBCountry *)country;
 
 @end

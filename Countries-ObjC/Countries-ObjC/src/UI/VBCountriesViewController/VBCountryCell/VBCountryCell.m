@@ -11,20 +11,11 @@
 @implementation VBCountryCell
 
 #pragma mark -
-#pragma mark Initializations and Deallocatins
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-#pragma mark -
 #pragma mark Public
 
-- (void)fillWithCounty:(VBCountry *)country {
-    self.countryName.text = country.name;
-    self.capitalName.text = country.capital;
+- (void)fillWithModel:(VBCountry *)model {
+    self.countryName.text = model.name;
+    self.capitalName.text = model.capital;
 }
-
 
 @end

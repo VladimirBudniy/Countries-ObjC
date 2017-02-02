@@ -20,8 +20,6 @@
 		CF2B22AB1E364074001441C2 /* UIViewController+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2B22A11E364074001441C2 /* UIViewController+VBCategory.m */; };
 		CF2B22AC1E364074001441C2 /* UIWindow+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2B22A41E364074001441C2 /* UIWindow+VBCategory.m */; };
 		CF2B22C31E36407B001441C2 /* VBDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2B22B11E36407B001441C2 /* VBDispatch.m */; };
-		CF2B22C51E36407B001441C2 /* VBNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2B22B71E36407B001441C2 /* VBNetwork.m */; };
-		CF2B22C61E36407B001441C2 /* VBParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2B22BA1E36407B001441C2 /* VBParser.m */; };
 		CF2B22C71E36407B001441C2 /* VBCountriesView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2B22BF1E36407B001441C2 /* VBCountriesView.m */; };
 		CF2B22C81E36407B001441C2 /* VBCountriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2B22C11E36407B001441C2 /* VBCountriesViewController.m */; };
 		CF2B22C91E36407B001441C2 /* VBCountriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2B22C21E36407B001441C2 /* VBCountriesViewController.xib */; };
@@ -30,7 +28,13 @@
 		CF9044201E379A0300D90EEC /* VBCountry+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CF90441E1E379A0200D90EEC /* VBCountry+CoreDataProperties.m */; };
 		CF90442B1E37A89A00D90EEC /* VBCountryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9044291E37A89A00D90EEC /* VBCountryCell.m */; };
 		CF90442C1E37A89A00D90EEC /* VBCountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF90442A1E37A89A00D90EEC /* VBCountryCell.xib */; };
-		CF9E9BEF1E373C9500B4A3CD /* VBContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9E9BEE1E373C9500B4A3CD /* VBContext.m */; };
+		CF99E1821E41F12D009E8CE9 /* VBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF99E1811E41F12D009E8CE9 /* VBCell.m */; };
+		CF99E1861E42081E009E8CE9 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF99E1851E42081E009E8CE9 /* CoreDataManager.m */; };
+		CF99E18D1E420C93009E8CE9 /* NSManagedObjectContext+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = CF99E18C1E420C93009E8CE9 /* NSManagedObjectContext+VBCategory.m */; };
+		CF99E1951E421A0C009E8CE9 /* VBNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF99E1941E421A0C009E8CE9 /* VBNetworkModel.m */; };
+		CF99E1991E42202B009E8CE9 /* VBNetworkCountries.m in Sources */ = {isa = PBXBuildFile; fileRef = CF99E1981E42202B009E8CE9 /* VBNetworkCountries.m */; };
+		CF99E1C01E4221A1009E8CE9 /* VBNetworkCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = CF99E1BF1E4221A1009E8CE9 /* VBNetworkCountry.m */; };
+		CF99E1C81E4236A6009E8CE9 /* VBCountry+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = CF99E1C71E4236A6009E8CE9 /* VBCountry+VBCategory.m */; };
 		CFF9A9891E3B335500B6EBB8 /* VBDetailVeiwController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9A9871E3B335500B6EBB8 /* VBDetailVeiwController.m */; };
 		CFF9A98A1E3B335500B6EBB8 /* VBDetailVeiwController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF9A9881E3B335500B6EBB8 /* VBDetailVeiwController.xib */; };
 		CFF9A98E1E3B336F00B6EBB8 /* VBDetailVeiw.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9A98D1E3B336F00B6EBB8 /* VBDetailVeiw.m */; };
@@ -64,10 +68,6 @@
 		CF2B22A41E364074001441C2 /* UIWindow+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VBCategory.m"; sourceTree = "<group>"; };
 		CF2B22B01E36407B001441C2 /* VBDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDispatch.h; sourceTree = "<group>"; };
 		CF2B22B11E36407B001441C2 /* VBDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDispatch.m; sourceTree = "<group>"; };
-		CF2B22B61E36407B001441C2 /* VBNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBNetwork.h; sourceTree = "<group>"; };
-		CF2B22B71E36407B001441C2 /* VBNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNetwork.m; sourceTree = "<group>"; };
-		CF2B22B91E36407B001441C2 /* VBParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBParser.h; sourceTree = "<group>"; };
-		CF2B22BA1E36407B001441C2 /* VBParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBParser.m; sourceTree = "<group>"; };
 		CF2B22BE1E36407B001441C2 /* VBCountriesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCountriesView.h; sourceTree = "<group>"; };
 		CF2B22BF1E36407B001441C2 /* VBCountriesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCountriesView.m; sourceTree = "<group>"; };
 		CF2B22C01E36407B001441C2 /* VBCountriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCountriesViewController.h; sourceTree = "<group>"; };
@@ -82,8 +82,20 @@
 		CF9044281E37A89A00D90EEC /* VBCountryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCountryCell.h; sourceTree = "<group>"; };
 		CF9044291E37A89A00D90EEC /* VBCountryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCountryCell.m; sourceTree = "<group>"; };
 		CF90442A1E37A89A00D90EEC /* VBCountryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBCountryCell.xib; sourceTree = "<group>"; };
-		CF9E9BED1E373C9500B4A3CD /* VBContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBContext.h; sourceTree = "<group>"; };
-		CF9E9BEE1E373C9500B4A3CD /* VBContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBContext.m; sourceTree = "<group>"; };
+		CF99E1801E41F12D009E8CE9 /* VBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBCell.h; sourceTree = "<group>"; };
+		CF99E1811E41F12D009E8CE9 /* VBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBCell.m; sourceTree = "<group>"; };
+		CF99E1841E42081E009E8CE9 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		CF99E1851E42081E009E8CE9 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		CF99E18B1E420C93009E8CE9 /* NSManagedObjectContext+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+VBCategory.h"; sourceTree = "<group>"; };
+		CF99E18C1E420C93009E8CE9 /* NSManagedObjectContext+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+VBCategory.m"; sourceTree = "<group>"; };
+		CF99E1931E421A0C009E8CE9 /* VBNetworkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBNetworkModel.h; sourceTree = "<group>"; };
+		CF99E1941E421A0C009E8CE9 /* VBNetworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNetworkModel.m; sourceTree = "<group>"; };
+		CF99E1971E42202B009E8CE9 /* VBNetworkCountries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBNetworkCountries.h; sourceTree = "<group>"; };
+		CF99E1981E42202B009E8CE9 /* VBNetworkCountries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNetworkCountries.m; sourceTree = "<group>"; };
+		CF99E1BE1E4221A1009E8CE9 /* VBNetworkCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBNetworkCountry.h; sourceTree = "<group>"; };
+		CF99E1BF1E4221A1009E8CE9 /* VBNetworkCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNetworkCountry.m; sourceTree = "<group>"; };
+		CF99E1C61E4236A6009E8CE9 /* VBCountry+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBCountry+VBCategory.h"; sourceTree = "<group>"; };
+		CF99E1C71E4236A6009E8CE9 /* VBCountry+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VBCountry+VBCategory.m"; sourceTree = "<group>"; };
 		CFF9A9861E3B335500B6EBB8 /* VBDetailVeiwController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBDetailVeiwController.h; sourceTree = "<group>"; };
 		CFF9A9871E3B335500B6EBB8 /* VBDetailVeiwController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBDetailVeiwController.m; sourceTree = "<group>"; };
 		CFF9A9881E3B335500B6EBB8 /* VBDetailVeiwController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBDetailVeiwController.xib; sourceTree = "<group>"; };
@@ -155,6 +167,7 @@
 		CF2B228A1E364074001441C2 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				CF99E18A1E420C82009E8CE9 /* NSManagedObjectContext+VBCategory */,
 				CF2B228B1E364074001441C2 /* Macro */,
 				CF2B228D1E364074001441C2 /* NSBundle+VBCategory */,
 				CF2B22901E364074001441C2 /* NSDate+VBCategory */,
@@ -260,10 +273,12 @@
 		CF2B22AE1E36407B001441C2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CF99E1921E4219D6009E8CE9 /* VBNetworkModel */,
+				CF99E1961E42201B009E8CE9 /* VBNetworkCountries */,
+				CF99E1BD1E422192009E8CE9 /* VBNetworkCountry */,
+				CF99E1831E4207F2009E8CE9 /* CoreDataManager */,
 				CF9E9BD41E373A6A00B4A3CD /* CoreData */,
 				CF2B22AF1E36407B001441C2 /* VBDispatch */,
-				CF2B22B51E36407B001441C2 /* VBNetwork */,
-				CF2B22B81E36407B001441C2 /* VBParser */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,27 +292,10 @@
 			path = VBDispatch;
 			sourceTree = "<group>";
 		};
-		CF2B22B51E36407B001441C2 /* VBNetwork */ = {
-			isa = PBXGroup;
-			children = (
-				CF2B22B61E36407B001441C2 /* VBNetwork.h */,
-				CF2B22B71E36407B001441C2 /* VBNetwork.m */,
-			);
-			path = VBNetwork;
-			sourceTree = "<group>";
-		};
-		CF2B22B81E36407B001441C2 /* VBParser */ = {
-			isa = PBXGroup;
-			children = (
-				CF2B22B91E36407B001441C2 /* VBParser.h */,
-				CF2B22BA1E36407B001441C2 /* VBParser.m */,
-			);
-			path = VBParser;
-			sourceTree = "<group>";
-		};
 		CF2B22BB1E36407B001441C2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CF99E17F1E41F117009E8CE9 /* VBCell */,
 				CFF9A9851E3B334900B6EBB8 /* VBDetailVeiwController */,
 				CF2B22BC1E36407B001441C2 /* VBCountriesViewController */,
 			);
@@ -335,15 +333,77 @@
 			path = VBCountryCell;
 			sourceTree = "<group>";
 		};
+		CF99E17F1E41F117009E8CE9 /* VBCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF99E1801E41F12D009E8CE9 /* VBCell.h */,
+				CF99E1811E41F12D009E8CE9 /* VBCell.m */,
+			);
+			path = VBCell;
+			sourceTree = "<group>";
+		};
+		CF99E1831E4207F2009E8CE9 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				CF99E1841E42081E009E8CE9 /* CoreDataManager.h */,
+				CF99E1851E42081E009E8CE9 /* CoreDataManager.m */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		CF99E18A1E420C82009E8CE9 /* NSManagedObjectContext+VBCategory */ = {
+			isa = PBXGroup;
+			children = (
+				CF99E18B1E420C93009E8CE9 /* NSManagedObjectContext+VBCategory.h */,
+				CF99E18C1E420C93009E8CE9 /* NSManagedObjectContext+VBCategory.m */,
+			);
+			path = "NSManagedObjectContext+VBCategory";
+			sourceTree = "<group>";
+		};
+		CF99E1921E4219D6009E8CE9 /* VBNetworkModel */ = {
+			isa = PBXGroup;
+			children = (
+				CF99E1931E421A0C009E8CE9 /* VBNetworkModel.h */,
+				CF99E1941E421A0C009E8CE9 /* VBNetworkModel.m */,
+			);
+			path = VBNetworkModel;
+			sourceTree = "<group>";
+		};
+		CF99E1961E42201B009E8CE9 /* VBNetworkCountries */ = {
+			isa = PBXGroup;
+			children = (
+				CF99E1971E42202B009E8CE9 /* VBNetworkCountries.h */,
+				CF99E1981E42202B009E8CE9 /* VBNetworkCountries.m */,
+			);
+			path = VBNetworkCountries;
+			sourceTree = "<group>";
+		};
+		CF99E1BD1E422192009E8CE9 /* VBNetworkCountry */ = {
+			isa = PBXGroup;
+			children = (
+				CF99E1BE1E4221A1009E8CE9 /* VBNetworkCountry.h */,
+				CF99E1BF1E4221A1009E8CE9 /* VBNetworkCountry.m */,
+			);
+			path = VBNetworkCountry;
+			sourceTree = "<group>";
+		};
+		CF99E1C11E4232ED009E8CE9 /* VBCountry+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CF99E1C61E4236A6009E8CE9 /* VBCountry+VBCategory.h */,
+				CF99E1C71E4236A6009E8CE9 /* VBCountry+VBCategory.m */,
+			);
+			path = "VBCountry+Extension";
+			sourceTree = "<group>";
+		};
 		CF9E9BD41E373A6A00B4A3CD /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				CF99E1C11E4232ED009E8CE9 /* VBCountry+Extension */,
 				CF90441B1E379A0200D90EEC /* VBCountry+CoreDataClass.h */,
 				CF90441C1E379A0200D90EEC /* VBCountry+CoreDataClass.m */,
 				CF90441D1E379A0200D90EEC /* VBCountry+CoreDataProperties.h */,
 				CF90441E1E379A0200D90EEC /* VBCountry+CoreDataProperties.m */,
-				CF9E9BED1E373C9500B4A3CD /* VBContext.h */,
-				CF9E9BEE1E373C9500B4A3CD /* VBContext.m */,
 				CF9044181E37995800D90EEC /* VBCountry.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -447,27 +507,31 @@
 			files = (
 				CF2B22C31E36407B001441C2 /* VBDispatch.m in Sources */,
 				CF2B22AA1E364074001441C2 /* UIView+VBCategory.m in Sources */,
+				CF99E1861E42081E009E8CE9 /* CoreDataManager.m in Sources */,
 				CF9044201E379A0300D90EEC /* VBCountry+CoreDataProperties.m in Sources */,
 				CF90441F1E379A0300D90EEC /* VBCountry+CoreDataClass.m in Sources */,
 				CF90441A1E37995800D90EEC /* VBCountry.xcdatamodeld in Sources */,
+				CF99E1C81E4236A6009E8CE9 /* VBCountry+VBCategory.m in Sources */,
 				CF2B22A51E364074001441C2 /* NSBundle+VBCategory.m in Sources */,
 				CF2B22A81E364074001441C2 /* UINib+VBCategory.m in Sources */,
 				CF2B22A91E364074001441C2 /* UITableView+VBCategory.m in Sources */,
 				CF2B22891E36406E001441C2 /* VBAppDelegate.m in Sources */,
 				CFF9A9891E3B335500B6EBB8 /* VBDetailVeiwController.m in Sources */,
+				CF99E1C01E4221A1009E8CE9 /* VBNetworkCountry.m in Sources */,
 				CF2B22A61E364074001441C2 /* NSDate+VBCategory.m in Sources */,
+				CF99E1951E421A0C009E8CE9 /* VBNetworkModel.m in Sources */,
+				CF99E1821E41F12D009E8CE9 /* VBCell.m in Sources */,
 				CF90442B1E37A89A00D90EEC /* VBCountryCell.m in Sources */,
 				CFF9A9911E3B85A800B6EBB8 /* VBAnnotation.m in Sources */,
-				CF9E9BEF1E373C9500B4A3CD /* VBContext.m in Sources */,
 				CF2B22711E364026001441C2 /* main.m in Sources */,
 				CF2B22C71E36407B001441C2 /* VBCountriesView.m in Sources */,
 				CFF9A98E1E3B336F00B6EBB8 /* VBDetailVeiw.m in Sources */,
 				CF2B22C81E36407B001441C2 /* VBCountriesViewController.m in Sources */,
-				CF2B22C61E36407B001441C2 /* VBParser.m in Sources */,
 				CF2B22A71E364074001441C2 /* UIImage+VBCategory.m in Sources */,
+				CF99E1991E42202B009E8CE9 /* VBNetworkCountries.m in Sources */,
 				CF2B22AB1E364074001441C2 /* UIViewController+VBCategory.m in Sources */,
-				CF2B22C51E36407B001441C2 /* VBNetwork.m in Sources */,
 				CF2B22AC1E364074001441C2 /* UIWindow+VBCategory.m in Sources */,
+				CF99E18D1E420C93009E8CE9 /* NSManagedObjectContext+VBCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

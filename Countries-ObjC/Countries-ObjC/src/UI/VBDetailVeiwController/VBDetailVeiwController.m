@@ -8,10 +8,12 @@
 
 #import "VBDetailVeiwController.h"
 #import "VBDetailVeiw.h"
-#import "VBNetwork.h"
+#import "VBNetworkCountry.h"
+
+VBViewControllerRootViewProperty(VBDetailVeiwController, VBDetailVeiw)
 
 @interface VBDetailVeiwController ()
-@property (nonatomic, readonly) VBDetailVeiw *rootView;
+@property (nonatomic, copy)     NSString     *countryName;
 
 - (VBNetworkHandler)handler;
 - (void)loadCountryWithName:(NSString *)name;
@@ -23,22 +25,24 @@
 #pragma mark -
 #pragma mark Accessors
 
-VBRootViewAndReturnIfNilMacro(VBDetailVeiw);
-
 -(void)setCountryName:(NSString *)countryName {
     if (_countryName != countryName) {
-        _countryName = countryName;
+        _countryName = [countryName copy];
         
         [self loadCountryWithName:_countryName];
     }
 }
 
 #pragma mark -
-#pragma mark View LifeCycle
+#pragma mark Initializations and Deallocatins
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-   
+- (instancetype)initWithCountryName:(NSString *)name {
+    self = [super init];
+    if (self) {
+        self.countryName = name;
+    }
+    
+    return self;
 }
 
 #pragma mark -
@@ -51,9 +55,9 @@ VBRootViewAndReturnIfNilMacro(VBDetailVeiw);
 }
 
 - (void)loadCountryWithName:(NSString *)name {
-    VBNetwork *networkModel = [[VBNetwork alloc] initWithHandler:[self handler]];
-    NSString* nameForUEL = [name stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
-    [networkModel prepareToLoadWith:nameForUEL];
+    VBNetworkCountry *model = [VBNetworkCountry modelWithHandler:[self handler]];
+    NSString *hash = [name stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
+    [model urlForLoadingWith:hash];
 }
 
 @end

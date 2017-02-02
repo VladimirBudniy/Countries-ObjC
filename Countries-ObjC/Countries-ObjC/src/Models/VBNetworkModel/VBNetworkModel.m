@@ -1,35 +1,40 @@
 //
-//  VBNetwork.m
-//  Counries-ObjC
+//  VBNetworkModel.m
+//  Countries-ObjC
 //
-//  Created by Vladimir Budniy on 1/23/17.
+//  Created by Vladimir Budniy on 2/1/17.
 //  Copyright © 2017 Vladimir Budniy. All rights reserved.
 //
 
-#import "VBNetwork.h"
-#import "VBParser.h"
+#import "VBNetworkModel.h"
 
-static NSString * const requestedURL      = @"http://api.worldbank.org/countries?per_page=30&format=json&page=%@";
-static NSString * const countryDetailsURL = @"https://restcountries.eu/rest/v1/name/%@";
-
-typedef void (^VBNetworkHandler)(id object);
-
-@interface VBNetwork ()
+@interface VBNetworkModel ()
 @property (nonatomic, strong) NSURLSession      *session;
 @property (nonatomic, strong) NSURLSessionTask  *task;
+
+@property (nonatomic, copy)   NSString          *urlString;
 @property (nonatomic, strong) NSArray           *array;
 @property (nonatomic, strong) VBNetworkHandler  networkHandler;
 
+- (instancetype)initWithHandler:(VBNetworkHandler)handler;
 - (void)finishLoad;
 - (void)loadWithURL:(NSString *)url;
 - (VBParserHandler)parseHandler;
 
 @end
 
-@implementation VBNetwork
+@implementation VBNetworkModel
 
 #pragma mark -
 #pragma mark Accessors
+
+-(void)setUrlString:(NSString *)urlString {
+    if (_urlString != urlString) {
+        _urlString = [urlString copy];
+        
+        [self loadWithURL:_urlString];
+    }
+}
 
 -(void)setArray:(NSArray *)array {
     if (_array != array) {
@@ -59,10 +64,25 @@ typedef void (^VBNetworkHandler)(id object);
 }
 
 #pragma mark -
+#pragma mark Class methods
+
++ (instancetype)modelWithHandler:(VBNetworkHandler)handler {
+    return [[[self class] alloc] initWithHandler:handler];
+}
+
+#pragma mark -
 #pragma mark Public
 
-- (void)prepareToLoadWith:(id)urlPart {
-    [self loadWithURL:[self urlFor:urlPart]];
+- (void)urlForLoadingWith:(id)hash {
+    
+}
+
+- (void)addUrlStringForLoad:(id)urlString {
+    self.urlString = urlString;
+}
+
+- (void)workWithJSON:(NSMutableArray *)json block:(id)block {
+    
 }
 
 #pragma mark -
@@ -79,16 +99,6 @@ typedef void (^VBNetworkHandler)(id object);
     [self.task cancel];
 }
 
-- (NSString *)urlFor:(id)urlPart {
-    if ([urlPart isKindOfClass:[NSString class]]) {
-        return [NSString stringWithFormat:countryDetailsURL, urlPart];
-    } else if ([urlPart isKindOfClass:[NSNumber class]]) {
-        return [NSString stringWithFormat:requestedURL, [(NSNumber *)urlPart stringValue]];
-    }
-    
-    return nil;
-}
-
 - (void)loadWithURL:(NSString *)url {
     NSURL *URL = [[NSURL alloc] initWithString:url];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL];
@@ -97,12 +107,7 @@ typedef void (^VBNetworkHandler)(id object);
                                                                               NSURLResponse *response,
                                                                               NSError *error) {
         if (!error) {
-            NSMutableArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            if (json.count > 1) {
-                [[[VBParser alloc] initWithJson:[json lastObject] handler:[self parseHandler]] parseWith:kVBCountriesDataType];
-            } else {
-                [[[VBParser alloc] initWithJson:json handler:[self parseHandler]] parseWith:kVBCountryDataType];
-            }
+            [self workWithJSON:[NSJSONSerialization JSONObjectWithData:data options:0 error:nil] block:[self parseHandler]];
         } else {
             NSLog(@"Error of session - %@", error);
         }

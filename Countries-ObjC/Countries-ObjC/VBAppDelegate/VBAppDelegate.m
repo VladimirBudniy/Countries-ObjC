@@ -7,6 +7,7 @@
 //
 
 #import "VBAppDelegate.h"
+#import "CoreDataManager.h"
 #import "VBCountriesViewController.h"
 
 @interface VBAppDelegate ()
@@ -17,6 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [CoreDataManager shared];
+    
     
     VBCountriesViewController *viewController = [VBCountriesViewController new];
     UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:viewController];
