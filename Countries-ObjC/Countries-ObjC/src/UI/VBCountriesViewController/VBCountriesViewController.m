@@ -17,6 +17,7 @@ VBViewControllerRootViewProperty(VBCountriesViewController, VBCountriesView)
 @interface VBCountriesViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong)   NSMutableArray  *countries;
 @property (nonatomic, assign)   NSUInteger       page;
+@property (nonatomic, assign)   NSUInteger       pagesCount;
 
 - (UITableView *)tableView;
 - (void)load;
@@ -39,6 +40,7 @@ VBViewControllerRootViewProperty(VBCountriesViewController, VBCountriesView)
     if (self) {
         self.countries = [NSMutableArray new];
         self.page = 1;
+        self.pagesCount = 11;
     }
     
     return self;
@@ -127,11 +129,9 @@ VBViewControllerRootViewProperty(VBCountriesViewController, VBCountriesView)
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger section = tableView.numberOfSections - 1;
     NSUInteger lastRow = [tableView numberOfRowsInSection:section] - 1;
-    if (indexPath.row == lastRow) {
+    if (indexPath.row == lastRow && self.page < self.pagesCount) {
         self.page += 1;
         [self load];
-        
-        // remove lock of view and fix count /////////////////////////////////////////////
     }
 }
 

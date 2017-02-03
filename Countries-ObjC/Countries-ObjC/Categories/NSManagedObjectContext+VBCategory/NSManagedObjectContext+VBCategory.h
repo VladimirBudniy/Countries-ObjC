@@ -10,25 +10,18 @@
 
 @interface NSManagedObjectContext (VBCategory)
 
-+ (id)findOrCreateCountryWithName:(NSString *)name;
-+ (id)findOrCreateCountryWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
-+ (id)createCountryWithName:(NSString *)name InContext:(NSManagedObjectContext *)context;
++ (id)findOrCreateEntityWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
++ (id)createEntityWithName:(NSString *)name InContext:(NSManagedObjectContext *)context;
 
 + (NSManagedObjectContext *)mainContext;
 + (NSManagedObjectContext *)privateContext;
 
-+ (NSArray *)findAll;
 + (NSArray *)findAllInContext:(NSManagedObjectContext *)context;
-+ (NSManagedObject *)findCountryWithName:(NSString *)name;
-+ (NSManagedObject *)findCountryWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
++ (NSManagedObject *)findEntityWithName:(NSString *)name;
++ (NSManagedObject *)findEntityWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
 
-+ (void)removeAll;
 + (void)removeAllInBackground;
 
-+ (void)removeCountryWithName:(NSString *)name;
-+ (void)removeCountry:(NSManagedObject *)country inContext:(NSManagedObjectContext *)context;
-
-+ (void)saveContext;
 + (void)saveInContext:(NSManagedObjectContext *)context;
 
 @end

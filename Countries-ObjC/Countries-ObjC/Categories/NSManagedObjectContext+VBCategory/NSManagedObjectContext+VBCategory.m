@@ -37,29 +37,29 @@ static NSString * const kVBPredicateFormat = @"name = %@";
 #pragma mark -
 #pragma mark Public
 
-+ (id)findOrCreateCountryWithName:(NSString *)name {
-    return [self findOrCreateCountryWithName:name inContext:[self mainContext]];
-}
+//+ (id)findOrCreateEntityWithName:(NSString *)name {
+//    return [self findOrCreateEntityWithName:name inContext:[self mainContext]];
+//}
 
-+ (id)findOrCreateCountryWithName:(NSString *)name inContext:(NSManagedObjectContext *)context {
-    id country = [self findCountryWithName:name inContext:context];
++ (id)findOrCreateEntityWithName:(NSString *)name inContext:(NSManagedObjectContext *)context {
+    id country = [self findEntityWithName:name inContext:context];
     if (country) {
         return country;
     }
     
-    return [self createCountryWithName:(NSString *)name InContext:context];
+    return [self createEntityWithName:(NSString *)name InContext:context];
 }
 
-+ (id)createCountryWithName:(NSString *)name InContext:(NSManagedObjectContext *)context {
++ (id)createEntityWithName:(NSString *)name InContext:(NSManagedObjectContext *)context {
     VBCountry *country = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([VBCountry class]) inManagedObjectContext:context];
     [country setValue:name forKey:@"name"];
     
     return country;
 }
 
-+ (NSArray *)findAll {
-    return [self findAllInContext:[self mainContext]];
-}
+//+ (NSArray *)findAll {
+//    return [self findAllInContext:[self mainContext]];
+//}
 
 + (NSArray *)findAllInContext:(NSManagedObjectContext *)context {
     NSFetchRequest *request = [VBCountry fetchRequest];
@@ -70,24 +70,17 @@ static NSString * const kVBPredicateFormat = @"name = %@";
     return [context executeFetchRequest:request error:&error];
 }
 
-+ (NSManagedObject *)findCountryWithName:(NSString *)name {
-    return [self findCountryWithName:name inContext:[self mainContext]];
++ (NSManagedObject *)findEntityWithName:(NSString *)name {
+    return [self findEntityWithName:name inContext:[self mainContext]];
 }
 
-+ (NSManagedObject *)findCountryWithName:(NSString *)name inContext:(NSManagedObjectContext *)context {
++ (NSManagedObject *)findEntityWithName:(NSString *)name inContext:(NSManagedObjectContext *)context {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:kVBPredicateFormat, name];
     NSFetchRequest *request = [VBCountry fetchRequest];
     NSError *error = nil;
     request.predicate = predicate;
     
     return [[context executeFetchRequest:request error:&error] firstObject];
-}
-
-+ (void)removeAll {
-    NSArray *countries = [self findAll];
-    for (VBCountry *country in countries) {
-        [[self mainContext] deleteObject:country];
-    }
 }
 
 + (void)removeAllInBackground {
@@ -101,21 +94,8 @@ static NSString * const kVBPredicateFormat = @"name = %@";
     }];
 }
 
-+ (void)removeCountryWithName:(NSString *)name {
-    NSManagedObject *country = [self findCountryWithName:name];
-    [self removeCountry:country inContext:[self mainContext]];
-}
-
-+ (void)removeCountry:(NSManagedObject *)country inContext:(NSManagedObjectContext *)context {
-    [context deleteObject:country];
-}
-
 #pragma mark
 #pragma mark Core Data Saving support
-
-+ (void)saveContext {
-    [self saveInContext:[self mainContext]];
-}
 
 + (void)saveInContext:(NSManagedObjectContext *)context {
     NSError *error = nil;

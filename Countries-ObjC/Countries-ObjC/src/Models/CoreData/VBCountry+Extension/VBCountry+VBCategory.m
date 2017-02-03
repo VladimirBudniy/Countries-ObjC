@@ -17,7 +17,7 @@
         for (NSDictionary *item in json) {
             if (![[item valueForKey:@"capitalCity"] isEqualToString:@""]) {
                 NSString *name = [item valueForKey:@"name"];
-                VBCountry *country = [NSManagedObjectContext findOrCreateCountryWithName:name inContext:privateContext];
+                VBCountry *country = [NSManagedObjectContext findOrCreateEntityWithName:name inContext:privateContext];
                 if (country && type == kVBCountriesDataType) {
                     country.capital = [item valueForKey:@"capitalCity"];
                     country.latitude = [item valueForKey:@"latitude"];
@@ -41,12 +41,12 @@
             if (type == kVBCountriesDataType) {
                 NSMutableArray *newArray = [NSMutableArray new];
                 for (VBCountry *item in parseArray) {
-                    [newArray addObject:[NSManagedObjectContext findCountryWithName:item.name inContext:privateContext.parentContext]];
+                    [newArray addObject:[NSManagedObjectContext findEntityWithName:item.name inContext:privateContext.parentContext]];
                 }
                 parseHandler(newArray);
             } else {
                 VBCountry *country = [parseArray firstObject];
-                parseHandler([NSManagedObjectContext findCountryWithName:country.name inContext:privateContext.parentContext]);
+                parseHandler([NSManagedObjectContext findEntityWithName:country.name inContext:privateContext.parentContext]);
             }
         }];
     }];

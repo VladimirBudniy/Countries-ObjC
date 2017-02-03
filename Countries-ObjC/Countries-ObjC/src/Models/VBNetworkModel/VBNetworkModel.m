@@ -108,6 +108,7 @@
                                                                               NSError *error) {
         if (!error) {
             [self workWithJSON:[NSJSONSerialization JSONObjectWithData:data options:0 error:nil] block:[self parseHandler]];
+            NSLog(@"Load success");
         } else {
             NSLog(@"Error of session - %@", error);
         }
