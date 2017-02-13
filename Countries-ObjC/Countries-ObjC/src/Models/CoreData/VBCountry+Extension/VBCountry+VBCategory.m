@@ -42,13 +42,11 @@
                 NSMutableArray *newArray = [NSMutableArray new];
                 for (VBCountry *item in parseArray) {
                     [newArray addObject:[NSManagedObjectContext findEntityWithName:item.name inContext:privateContext.parentContext]];
-                    [parseArray removeAllObjects];
                 }
                 parseHandler(newArray);
             } else {
                 VBCountry *country = [parseArray firstObject];
                 parseHandler([NSManagedObjectContext findEntityWithName:country.name inContext:privateContext.parentContext]);
-                [parseArray removeAllObjects];
             }
         }];
     }];
